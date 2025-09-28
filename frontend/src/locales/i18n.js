@@ -21,16 +21,18 @@ const translations = {
       noProblems: "No problems in this category.",
     },
    categories: {
-      tsunami: "Tsunami",
-      stormSurge: "Storm Surge",
-      highWaves: "High Waves",
-      swellSurge: "Swell Surge",
-      coastalFlooding: "Coastal Flooding",
-      coastalCurrents: "Coastal Currents",
-      abnormalSeaBehaviour: "Abnormal Sea",
-      coastalErosionDamage: "Coastal Erosion",
-      socialMediaTrends: "Social Media Trends"
-    },
+  
+  allReports: "All Reports",
+  tsunami: "Tsunami",
+  stormSurge: "Storm Surge",
+  highWaves: "High Waves",
+  swellSurge: "Swell Surge",
+  coastalFlooding: "Coastal Flooding",
+  coastalCurrents: "Coastal Currents",
+  abnormalSeaBehaviour: "Abnormal Sea",
+  coastalErosionDamage: "Coastal Erosion",
+  socialMediaTrends: "Social Media Trends"
+},
 
     status: {
       open: "Open",
