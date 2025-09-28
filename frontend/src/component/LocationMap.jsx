@@ -14,7 +14,7 @@ L.Icon.Default.mergeOptions({
 
 export default function LocationMap({ onSelect = () => {} }) {
   const [showMap, setShowMap] = useState(false);
-  const [position, setPosition] = useState([28.6139, 77.209]); // Delhi default
+  const [position, setPosition] = useState([18.9432, 72.8235]); // Marine Drive, Mumbai
   const [address, setAddress] = useState("Select on map");
 
   
@@ -30,7 +30,7 @@ export default function LocationMap({ onSelect = () => {} }) {
       const data = JSON.parse(text.contents);
       
       // setAddress(data.display_name || "Unknown location");
-      setAddress(" Connaught Place, New Delhi, Delhi 110001, India"|| "Unknown location");
+      setAddress("Marine Drive, Mumbai"|| "Unknown location");
 
     } catch (err) {
       console.error(err);
