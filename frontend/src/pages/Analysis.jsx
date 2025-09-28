@@ -40,24 +40,86 @@ const categoryColors = {
 };
 
 // Custom pin icon generator
+// Internal CSS for radar waves
+const waveStyle = `
+<style>
+.radar-wave {
+  position: relative;
+  width: 12px;  /* smaller inner circle */
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color);
+  opacity: 1;
+}
+
+.radar-wave::before,
+.radar-wave::after,
+.radar-wave span,
+.radar-wave i {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  border: 2px solid var(--color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0.8;
+  animation: ripple 4s linear infinite;
+}
+
+/* Second ripple */
+.radar-wave::after {
+  animation-delay: 1s;
+}
+
+/* Third ripple */
+.radar-wave span {
+  animation-delay: 2s;
+}
+
+/* Fourth ripple */
+.radar-wave i {
+  animation-delay: 3s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+</style>
+`;
+
+if (!document.getElementById("wave-style")) {
+  const styleElement = document.createElement("div");
+  styleElement.id = "wave-style";
+  styleElement.innerHTML = waveStyle;
+  document.head.appendChild(styleElement);
+}
+
+// Create radar wave pin with 4 rings
 function createPinIcon(priority) {
   return L.divIcon({
-    className: "custom-pin",
+    className: "radar-pin",
     html: `
-      <div style="
-        background:${priorityColors[priority]};
-        width:20px;
-        height:20px;
-        border-radius:50% 50% 50% 0;
-        transform: rotate(-45deg);
-        border: 2px solid white;
-      "></div>
+      <div class="radar-wave" style="--color:${priorityColors[priority]}">
+        <span></span>
+        <i></i>
+      </div>
     `,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [0, -30],
+    iconSize: [10, 10],
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -20],
   });
 }
+
 
 // 20 problem data around New Delhi
 const problemData = [
