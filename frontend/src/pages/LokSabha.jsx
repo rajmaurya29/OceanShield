@@ -368,7 +368,7 @@ const LokSabha = () => {
 
       {/* Add Button */}
 
-      { user?.role==="GOVT" &&      <button
+      { user?.role!=="GOVT" &&      <button
         onClick={openModal}
         className="fixed bottom-6 right-23 bg-green-400 text-gray-900 p-4 rounded-full shadow-lg hover:bg-opacity-90 transition-colors"
         aria-label="Add issue"
